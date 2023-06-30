@@ -1,21 +1,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    https://www.springframework.org/schema/util/spring-util.xsd ">
 
-    <bean id="user" class="org.jdom.thinking.in.spring.ioc.overview.dependency.domain.User" >
-        <property name="id" value="11" />
-        <property name="name" value="张三" />
-    </bean>
+    <!-- 引入并复用 -->
+    <import resource="dependency-lookup-context.xml" />
 
-    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
-        <property name="targetBeanName" value="user" />
-    </bean>
-
-    <bean id="superUser" class="org.jdom.thinking.in.spring.ioc.overview.dependency.domain.SuperUser" parent="user"
-        primary="true">
-        <property name="address" value="杭州" />
+    <bean id="userRepository" class="org.jdom.thinking.in.spring.ioc.overview.repository.UserRepository" autowire="byType">
+        <!--<property name="user" ref="user" />
+        <property name="users">
+            <list>
+                <ref bean="user" />
+                <ref bean="superUser" />
+            </list>
+        </property>-->
     </bean>
 
 </beans>

@@ -1,4 +1,4 @@
-package org.jdom.thinking.in.spring.ioc.overview.dependency.annotation;
+package org.jdom.thinking.in.spring.ioc.overview.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

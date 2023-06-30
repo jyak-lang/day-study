@@ -1,4 +1,4 @@
-package org.jdom.thinking.in.spring.ioc.overview.dependency.domain;
+package org.jdom.thinking.in.spring.ioc.overview.domain;
 
 /**
  * @ClassName User
